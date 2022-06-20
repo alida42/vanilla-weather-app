@@ -11,25 +11,32 @@
 </head>
 
 <body>
-    <div class="container">
+<div class="container">
+    <div class="weather-app-wrapper">
         <div class="weather-app">
-        <h1>
-            Melbourne
-        </h1>
-        <ul>
-            <li>
-                Friday 05:00
-            </li>
-            <li>
-                Clear
-            </li>
-        </ul>
-        <div class="row">
-            <div class="col-md-6">
-                <img src="img/sunny.png" alt="clear" />
-                12°C / °F
+            <div class="overview">
+                <h1>
+                    Melbourne
+                </h1>
+                <ul>
+                    <li>
+                        Friday 05:00
+                    </li>
+                    <li>
+                        Cloudy
+                        </li>
+                        </ul>
             </div>
-            <div class="col-md-6">
+        <div class="row">
+            <div class="col-6">
+                <div class="clearfix weather-temperature">
+                    <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="Cloudy" class="float-left" />
+                    <span class="float-left">
+                        <strong>12</strong><span class="units"><a href="#">°C</a> | <a href="#">°F</a></span>
+                    </span>
+                </div>
+                    </div>
+                    <div class="col-6">
                 <ul>
                     <li>
                         Humidity: 73%
@@ -43,12 +50,12 @@
                 </ul>
             </div>
         </div>
-    </div>
+        </div>
         <small>
             <a href="https://github.com/alida42/vanilla-weather-app" target="_blank">Open-sourced code</a>
             by Alida Nygaard.
         </small>
-
+    </div>
 
     <a href="" class="btn btn-primary"> Click me</a>
 
