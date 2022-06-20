@@ -82,7 +82,7 @@ function displayTemperature(response) {
     let dateElement = document.querySelector("#date");
     let iconElement = document.querySelector("#icon");
 
-    celsiusTemperatuer = response.data.main.temp;
+    let celsiusTemperature = response.data.main.temp;
 
     temperatureElement.innerHTML = Math.round(celsiusTemperature);
     cityElement.innerHTML = response.data.name;
@@ -117,46 +117,3 @@ let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
 search("Melbourne");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function displayTemperature(response) {
-    let temperatureElement = document.querySelector("#temperature");
-    temperatureElement.innerHTML = response.data.main.temp;
-}
-
-
