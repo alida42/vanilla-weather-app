@@ -1,5 +1,25 @@
 TO DO LIST - Final Project
+# changing bg-img
+# make specifications float-right
+# current location button
+# change icons
+# make it pretty!
+
+
+
+
+KLART:
+1. Search engine
+2. API
+3. Wind speed
+4. Weather description
+5. Weather icon
+6. Weekly forecast
+7. Unit conversion
+8. Host on Netlify
+9. Link to Github repository
 
 # add the HTML and CSS to forecast
 # add the API call to get the forecast
 # replace the dummy content with real data
+# make focus temp bold

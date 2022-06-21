@@ -13,7 +13,8 @@
 </head>
 
 <body>
-<div class="container">
+<div class="bg-img">
+    <div class="container" id="bg-img">
     <div class="weather-app-wrapper">
         <div class="weather-app">
             <form id="search-form" class="mb-3">
@@ -23,7 +24,7 @@
                             autocomplete="off" />
                     </div>
                     <div class="col-3">
-                        <input type="submit" value="Search" class="btn btn-primary w-100" />
+                            <input type="submit" value="Search" class="btn btn-primary w-100" id="search-button" />
                     </div>
                 </div>
             </form>
@@ -32,20 +33,21 @@
                 <ul>
                     <li>Last updated: <span id="date"></span></li>
                     <li id="description"></li>
-                    </ul>
+                </ul>
             </div>
             <div class="row">
                 <div class="col-6">
                     <div class="clearfix weather-temperature">
-                        <img src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png" alt="Cloudy" class="float-left" />
+                        <img src="" alt="" class="float-left" id="icon" />
                         <span class="float-left">
-                            <strong id="temperature"></strong><span class="units"><a href="#">°C</a> | <a href="#">°F</a></span>
+                            <strong id="temperature"></strong><span class="units"><a href="#" id="celsius-link" tabindex="1">°C</a> | <a href="#"
+                                    id="fahrenheit-link" tabindex="1">°F</a></span>
                             </span>
                     </div>
                 </div>
             </div>
             <div class="col-6">
-                <ul>
+                <ul class="float-right">
                     <li>
                             Humidity: <span id="humidity"></span> %
                             </li>
@@ -57,12 +59,12 @@
 <div class="weather-forecast" id="forecast">
     <div class="weekly-forecast"></div>
 </div>
-
-            <small>
+</div>
+</div>
+<small class="endCard">
                 <a href="https://github.com/alida42/vanilla-weather-app" target="_blank">Open-sourced code</a>
                 by Alida Nygaard.
             </small>
-    </div>
     </div>
     </div>
     </div>

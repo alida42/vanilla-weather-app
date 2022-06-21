@@ -10,13 +10,13 @@ function formatDate (timestamp) {
         }
 
     let days = [
-            "Sunday",
-            "Monday",
-            "Tuesday",
-            "Wednesday",
-            "Thursday",
-            "Friday",
-            "Saturday"
+            `Sunday`,
+            `Monday`,
+            `Tuesday`,
+            `Wednesday`,
+            `Thursday`,
+            `Friday`,
+            `Saturday`
         ];
 
     let day = days[date.getDay()];
@@ -31,16 +31,13 @@ function formatDay(timestamp) {
     return days[day];
 }
 
-
 function displayForecast (response) {
     let forecast = response.data.daily;
 
     let forecastElement = document.querySelector("#forecast");
     
     let forecastHTML = `<div class="row">`;
-
-    let days = [`Thu`, `Fri`, `Sat`, `Sun`];
-    days.forEach(function(forecastDay, index) {
+    forecast.forEach(function (forecastDay, index) {
         if (index < 6) {
         forecastHTML = 
                 forecastHTML +  
@@ -49,8 +46,10 @@ function displayForecast (response) {
                         <div class="weekly-forecast-date">
                             ${formatDay(forecastDay.dt)}
                         </div>
-                            <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
-                            width ="42"/>
+                            <img 
+                            src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png"
+                            width ="42"
+                            />
                         <div class="weekly-forecast-temperatures">
                                 <span class="weekly-forecast-temperature-max">
                                     ${Math.round(forecastDay.temp.max)}°
@@ -61,10 +60,14 @@ function displayForecast (response) {
                         </div>
                     </div>
                 `;
-    }})
-        forecastHTML = forecastHTML + `</div>`;
+        }
+    });
+
+    forecastHTML = forecastHTML + `</div>`;
     forecastElement.innerHTML = forecastHTML;
 }
+
+// function backgroundImage {}
 
 function getForecast(coordinates) {
     let apiKey = `d59d21823b0a48106ca99bf9e0c71303`;
@@ -82,7 +85,7 @@ function displayTemperature(response) {
     let dateElement = document.querySelector("#date");
     let iconElement = document.querySelector("#icon");
 
-    let celsiusTemperature = response.data.main.temp;
+    celsiusTemperature = response.data.main.temp;
 
     temperatureElement.innerHTML = Math.round(celsiusTemperature);
     cityElement.innerHTML = response.data.name;
@@ -90,14 +93,16 @@ function displayTemperature(response) {
     humidityElement.innerHTML = response.data.main.humidity;
     windElement.innerHTML = Math.round(response.data.wind.speed);
     dateElement.innerHTML = formatDate(response.data.dt * 1000);
-    //iconElement.setAttribute(
-     //   "src",
-       // `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    //);
-    //iconElement.setAttribute(
-    //    "alt",
-     //   response.data.weather[0].description
-   // );
+    
+    iconElement.setAttribute(
+        "src",
+        `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
+    iconElement.setAttribute(
+        "alt",
+       response.data.weather[0].description
+    );
+
     getForecast(response.data.coord);
 }
 
@@ -113,7 +118,32 @@ function handleSubmit(event) {
     search(cityInputElement.value);
 }
 
+function displayFahrenheit(event) {
+    event.preventDefault();
+    let temperatureElement = document.querySelector("#temperature");
+
+    celsiusLink.classList.remove("active");
+    fahrenheitLink.classList.add("active");
+    let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+    temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function displayCelsius(event) {
+    event.preventDefault();
+    celsiusLink.classList.add("active");
+    let temperatureElement = document.querySelector("#temperature");
+    temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsius);
 
 search("Melbourne");
