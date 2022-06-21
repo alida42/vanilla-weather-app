@@ -1,0 +1,5 @@
+TO DO LIST - Final Project
+
+# add the HTML and CSS to forecast
+# add the API call to get the forecast
+# replace the dummy content with real data
